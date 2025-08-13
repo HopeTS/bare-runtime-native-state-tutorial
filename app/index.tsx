@@ -14,20 +14,36 @@ import b4a from 'b4a';
 
 import 'expo-router/entry';
 
+import { useRPC } from '@/state/RPCContext';
 import { useCounter } from '@/state/CounterContext';
 import * as commands from '../rpc-commands.mjs';
 import bundle from './app.bundle.mjs';
 
 export default function App() {
   const counter = useCounter();
+  const rpc = useRPC();
 
   const onIncrement = () => {
-    // Increment the counter
+    console.log('Incrementing counter...');
+    if (!rpc) {
+      console.warn('RPC not initialized');
+      return;
+    }
+
+    const req = rpc.request(commands.RPC_INCREMENT);
+    req.send('1');
     return;
   };
 
   const onDecrement = () => {
-    // Decrement the counter
+    console.log('Decrementing counter...');
+    if (!rpc) {
+      console.warn('RPC not initialized');
+      return;
+    }
+
+    const req = rpc.request(commands.RPC_DECREMENT);
+    req.send('1');
     return;
   };
 

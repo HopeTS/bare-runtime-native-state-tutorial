@@ -23,6 +23,13 @@ export function RPCBridge() {
 
     const feRPC = new RPC(IPC, req => {
       switch (req.command) {
+        case commands.RPC_UPDATE:
+          console.log('RPC update received:', req);
+          dispatch({
+            type: 'SET_COUNT',
+            payload: parseInt(b4a.toString(req.data)),
+          });
+
         default:
           console.warn('Unknown RPC command:', req.command);
           break;
