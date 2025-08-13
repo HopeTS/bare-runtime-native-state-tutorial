@@ -14,13 +14,31 @@ import b4a from 'b4a';
 
 import 'expo-router/entry';
 
+import { useCounter } from '@/state/CounterContext';
 import * as commands from '../rpc-commands.mjs';
 import bundle from './app.bundle.mjs';
 
 export default function App() {
+  const counter = useCounter();
+
+  const onIncrement = () => {
+    // Increment the counter
+    return;
+  };
+
+  const onDecrement = () => {
+    // Decrement the counter
+    return;
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.heading}>Autopass-example hello</Text>
+      <Text style={styles.heading}>Bare RPC Example</Text>
+
+      <Text style={styles.counter}>{counter.count}</Text>
+
+      <Button title="increment" onPress={() => onIncrement()} />
+      <Button title="decrement" onPress={() => onDecrement()} />
     </View>
   );
 }
@@ -55,5 +73,8 @@ const styles = StyleSheet.create({
   itemText: {
     fontSize: 16,
     color: '#333',
+  },
+  counter: {
+    color: '#fff',
   },
 });
