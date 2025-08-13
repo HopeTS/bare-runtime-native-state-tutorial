@@ -4,7 +4,7 @@
   "description": "Example of embedding Bare in an Expo application",
   "main": "expo-router/entry",
   "scripts": {
-    "start": "expo start",
+    "start": "expo run",
     "android": "expo run:android",
     "build-backend": "npx bare-pack --target ios --target android --linked --out app/app.bundle.mjs backend/backend.mjs",
     "ios": "expo run:ios"
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/hopets/bare-runtime-native-state-tutorial.git"
   },
-  "author": "HopeTS",
+  "author": "holepunchto",
   "license": "Apache-2.0",
   "dependencies": {
     "@hopets/peardrive-core": "^0.2.52",
